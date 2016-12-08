@@ -34,12 +34,16 @@ public class PhoneBook {
     }
 
     public static void getPhones(String name) {
-        ArrayList<String> output = phoneBook.get(name);
-        if (output.size() == 0) {
+        if (phoneBook.containsKey(name)) {
+            ArrayList<String> output = phoneBook.get(name);
+            if (output.size() == 0) {
+                System.out.println("У данного абонента телефонов в БД нет");
+            }
+            for (int i = 0; i < output.size(); i++) {
+                System.out.println((i + 1) + ". " + output.get(i));
+            }
+        } else {
             System.out.println("Данного ФИО в БД нет");
-        }
-        for (int i = 0; i < output.size(); i++) {
-            System.out.println((i + 1) + ". " + output.get(i));
         }
     }
 }
