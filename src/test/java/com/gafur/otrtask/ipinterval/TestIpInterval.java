@@ -31,7 +31,7 @@ public class TestIpInterval {
     }
 
     @Test
-    public void inputDataTest(){
+    public void inputDataTest() {
         IpInterval ipInterval = new IpInterval();
         ArrayList<String> check = ipInterval.findInterval("AAA.168.10.0", "192.168.10.3");
         assertEquals(null, check);

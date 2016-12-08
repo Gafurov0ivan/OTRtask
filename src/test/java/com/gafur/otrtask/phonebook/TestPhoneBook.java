@@ -37,7 +37,7 @@ public class TestPhoneBook {
     }
 
     @Test
-    public void inputDataTest(){
+    public void inputDataTest() {
         PhoneBook phoneBook = new PhoneBook();
         ArrayList<String> check = phoneBook.findPhones("Карпов К.К.");
         assertEquals(0, check.size());
