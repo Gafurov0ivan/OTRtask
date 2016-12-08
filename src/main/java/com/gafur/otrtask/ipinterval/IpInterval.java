@@ -14,8 +14,10 @@ public class IpInterval {
             long first = host2Long(firstIp);
             long second = host2Long(secondIp);
             if (first >= second) {
+                ipList.add(firstIp);
+                ipList.add(secondIp);
                 System.out.println("Please enter correct interval");
-                return null;
+                return ipList;
             }
             for (long i = first + 1; i <= second - 1; i++) {
                 ipList.add(long2Dotted(i));

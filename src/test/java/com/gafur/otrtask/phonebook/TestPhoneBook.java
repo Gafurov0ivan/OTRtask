@@ -30,10 +30,17 @@ public class TestPhoneBook {
     }
 
     @Test
-    public void checkPhones() {
+    public void smokeTest() {
         PhoneBook phoneBook = new PhoneBook();
         ArrayList<String> check = phoneBook.findPhones("Петров П.П.");
         assertEquals(1, check.size());
+    }
+
+    @Test
+    public void inputDataTest(){
+        PhoneBook phoneBook = new PhoneBook();
+        ArrayList<String> check = phoneBook.findPhones("Карпов К.К.");
+        assertEquals(0, check.size());
     }
 
     @Test
