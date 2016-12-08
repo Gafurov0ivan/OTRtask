@@ -27,5 +27,6 @@ public class TestIpInterval {
         IpInterval ipInterval = new IpInterval();
         ArrayList<String> check = ipInterval.findInterval("192.168.10.0", "192.168.10.3");
         assertEquals(2, check.size());
+        assertEquals("192.168.10.1", check.get(0));
     }
 }

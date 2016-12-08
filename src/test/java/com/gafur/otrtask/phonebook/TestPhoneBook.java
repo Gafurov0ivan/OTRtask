@@ -37,12 +37,21 @@ public class TestPhoneBook {
     }
 
     @Test
-    public void testAssertMap() throws NoSuchFieldException, NoSuchMethodException, IllegalAccessException {
+    public void testAssertMap() {
         PhoneBook obj = new PhoneBook();
-
-        Field f = obj.getClass().getDeclaredField("phoneBook");
-        f.setAccessible(true);
-        Map<String, ArrayList<String>> phoneBook = (Map<String, ArrayList<String>>) f.get(obj);
+        Field field = null;
+        Map<String, ArrayList<String>> phoneBook = null;
+        try {
+            field = obj.getClass().getDeclaredField("phoneBook");
+            field.setAccessible(true);
+            phoneBook = (Map<String, ArrayList<String>>) field.get(obj);
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+            System.out.println("There is no field with name phoneBook in PhoneBook");
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+            System.out.println("We cant take an access on the field");
+        }
 
         Map<String, ArrayList<String>> expected = new HashMap<String, ArrayList<String>>();
         ArrayList<String> ivanovPhones = new ArrayList<String>();

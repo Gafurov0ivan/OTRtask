@@ -2,17 +2,34 @@ package com.gafur.otrtask.ipinterval;
 
 import java.util.ArrayList;
 import java.util.StringTokenizer;
+import java.util.regex.Pattern;
 
 public class IpInterval {
+    private static final Pattern PATTERN = Pattern.compile(
+            "^(([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.){3}([01]?\\d\\d?|2[0-4]\\d|25[0-5])$");
+
     public ArrayList<String> findInterval(String firstIp, String secondIp) {
-        ArrayList<String> ipList = new ArrayList<String>();
-        long first = host2Long(firstIp);
-        long second = host2Long(secondIp);
-        for (long i = first + 1; i <= second - 1; i++) {
-            ipList.add(long2Dotted(i));
-            System.out.println(long2Dotted(i));
+        if (validate(firstIp) && validate(secondIp)) {
+            ArrayList<String> ipList = new ArrayList<String>();
+            long first = host2Long(firstIp);
+            long second = host2Long(secondIp);
+            if (first >= second) {
+                System.out.println("Please enter correct interval");
+                return null;
+            }
+            for (long i = first + 1; i <= second - 1; i++) {
+                ipList.add(long2Dotted(i));
+                System.out.println(long2Dotted(i));
+            }
+            return ipList;
+        } else {
+            System.out.println("Ip address is not valid");
         }
-        return ipList;
+        return null;
+    }
+
+    private static boolean validate(final String ip) {
+        return PATTERN.matcher(ip).matches();
     }
 
     private static long host2Long(String host) {
