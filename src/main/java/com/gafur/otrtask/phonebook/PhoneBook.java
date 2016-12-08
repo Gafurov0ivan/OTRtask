@@ -1,16 +1,19 @@
 package com.gafur.otrtask.phonebook;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class PhoneBook {
-    private static Map<String, ArrayList<String>> phoneBook = new HashMap<String, ArrayList<String>>();
+    private static Map<String, ArrayList<String>> phoneBook = fillPhoneBook();
 
-    public static void main(String[] args) throws IOException {
+    public ArrayList<String> findPhones(String name) {
+        ArrayList<String> phonesByName = getPhones(name);
+        return phonesByName;
+    }
+
+    private static Map<String, ArrayList<String>> fillPhoneBook() {
+        Map<String, ArrayList<String>> phoneBook = new HashMap<String, ArrayList<String>>();
 
         ArrayList<String> ivanovPhones = new ArrayList<String>();
         ivanovPhones.add("+8 800 2000 500");
@@ -28,22 +31,22 @@ public class PhoneBook {
         phoneBook.put("Петров П.П.", petrovPhones);
         phoneBook.put("Сидоров С.С.", sidorovPhones);
 
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        String name = reader.readLine();
-        getPhones(name);
+        return phoneBook;
     }
 
-    public static void getPhones(String name) {
+    private static ArrayList<String> getPhones(String name) {
+        ArrayList<String> phones = new ArrayList<String>();
         if (phoneBook.containsKey(name)) {
-            ArrayList<String> output = phoneBook.get(name);
-            if (output.size() == 0) {
+            phones = phoneBook.get(name);
+            if (phones.size() == 0) {
                 System.out.println("У данного абонента телефонов в БД нет");
             }
-            for (int i = 0; i < output.size(); i++) {
-                System.out.println((i + 1) + ". " + output.get(i));
+            for (int i = 0; i < phones.size(); i++) {
+                System.out.println((i + 1) + ". " + phones.get(i));
             }
         } else {
             System.out.println("Данного ФИО в БД нет");
         }
+        return phones;
     }
 }
