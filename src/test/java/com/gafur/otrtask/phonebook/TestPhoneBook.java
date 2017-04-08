@@ -15,6 +15,10 @@ import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertEquals;
 
+/**
+ * @author igafurov
+ * @since 05.12.2016
+ */
 public class TestPhoneBook {
     private static final Class PHONEBOOK_CLASS = PhoneBook.class;
     private PhoneBook phoneBook = null;

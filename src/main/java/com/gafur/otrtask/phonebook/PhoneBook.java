@@ -4,9 +4,21 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Application to find phones from phone book
+ *
+ * @author igafurov
+ * @since 05.12.2016
+ */
 public class PhoneBook {
     private static Map<String, ArrayList<String>> phoneBook = fillPhoneBook();
 
+    /**
+     * Find phones from phone book by name
+     *
+     * @param name name
+     * @return phonesByName - list of phones
+     */
     public ArrayList<String> findPhones(String name) {
         ArrayList<String> phonesByName = getPhones(name);
         return phonesByName;

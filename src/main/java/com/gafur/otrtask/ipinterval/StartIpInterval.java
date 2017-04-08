@@ -4,6 +4,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+/**
+ * @author igafurov
+ * @since 05.12.2016
+ */
 public class StartIpInterval {
 
     public static void main(String[] args) {

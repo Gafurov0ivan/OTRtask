@@ -8,6 +8,10 @@ import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
 
+/**
+ * @author igafurov
+ * @since 05.12.2016
+ */
 public class TestIpInterval {
     private static final Class IPINTERVAL_CLASS = IpInterval.class;
     private IpInterval ipInterval = null;

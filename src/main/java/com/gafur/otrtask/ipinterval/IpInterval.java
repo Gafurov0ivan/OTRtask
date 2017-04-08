@@ -4,10 +4,23 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 import java.util.regex.Pattern;
 
+/**
+ * Find all ip addresses in the interval
+ *
+ * @author igafurov
+ * @since 05.12.2016
+ */
 public class IpInterval {
     private static final Pattern PATTERN = Pattern.compile(
             "^(([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.){3}([01]?\\d\\d?|2[0-4]\\d|25[0-5])$");
 
+    /**
+     * Find all ip addresses in the interval
+     *
+     * @param firstIp  first ip address
+     * @param secondIp second ip address
+     * @return ipList with ip addresses
+     */
     public ArrayList<String> findInterval(String firstIp, String secondIp) {
         if (validate(firstIp) && validate(secondIp)) {
             ArrayList<String> ipList = new ArrayList<String>();
