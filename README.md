@@ -1,11 +1,6 @@
-OTRtask - проект, который содержит 2 задания.
+Test task for company
 
-Запуск первого задания - StartIpInterval.
-Запуск второго задания - StartPhoneBook.
-Запуск тестов для первого задания - TestIpInterval.
-Запуск тестов для второго задания - TestPhoneBook.
-
-Сборка на Maven.
-Тесты написаны с использованием JUnit.
-
-Если есть дополнительные требования или вопросы: gafurov0ivan@gmail.com, 89656043882, Иван.
+First task - StartIpInterval.
+Second task - StartPhoneBook.
+Test for 1 task - TestIpInterval.
+Test for 2 task - TestPhoneBook.
